@@ -1,0 +1,79 @@
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  line-height: 10px;
+}
+body {
+  @include font($body-ff, 1.7rem, $body-color, 300, $lh: 2.5rem);
+  height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 15px;
+}
+
+.section {
+  height: 100vh;
+  padding: 120px 0;
+  text-align: center;
+
+  &--pink {
+    background-color: $primary-color
+  }
+  &__title {
+    @include font($fz: 9rem, $fw: 700);
+    margin: 0;
+  }
+  &__subtitle {
+    @include font($fz: 1.7rem, $fw: 300);
+    max-width: 570px;
+    margin: 0 auto;
+  }
+}
+.posts {
+
+}
+.post {
+  position: relative;
+  display: inline-block;
+
+  &:hover .post__img {
+    transform: scale(1.2);
+    @include tr;
+  }
+  & + & {
+    margin-left: 15px;
+  }
+  &__img-wraper {
+    width: 370px;
+    height: 310px;
+    overflow: hidden;
+    position: relative;
+    &:after {
+      content: '';
+      background-image: linear-gradient( rgba(1, 1, 1, 0) 50%, rgba(0, 0, 0, 1));
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+  &__img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    @include tr;
+
+  }
+}
