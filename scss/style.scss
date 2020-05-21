@@ -14,6 +14,9 @@ body {
   @include font($body-ff, 1.7rem, $body-color, 300, $lh: 2.5rem);
   height: 100vh;
 }
+a {
+  text-decoration: none;
+}
 
 .container {
   margin: 0 auto;
@@ -40,14 +43,19 @@ body {
   }
 }
 .posts {
-
+  margin: 50px 0 60px;
 }
 .post {
   position: relative;
   display: inline-block;
+  box-shadow: 0 2px 4px #000;
+
+  @include hover {
+    box-shadow: 0 6px 12px #000;
+  }
 
   &:hover .post__img {
-    transform: scale(1.2);
+    transform: scale(1.1);
     @include tr;
   }
   & + & {
@@ -74,6 +82,22 @@ body {
     bottom: 0;
     left: 0;
     @include tr;
-
+  }
+  &__info {
+    
+  }
+  &__title,
+  &__subtitle,
+  &__date {
+    color: $body-color;
+  }
+}
+.btn {
+  padding: 20px 40px;
+  background-color: $btn-bg;
+  @include font($fz: 2rem, $fc: $body-color);
+  @include hover {
+    box-shadow: 0 2px 4px #000;
+    background-color: lighten($btn-bg, 2);
   }
 }
